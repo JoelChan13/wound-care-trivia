@@ -62,6 +62,16 @@ function resetState(){
     }
 }
 
+function selectAnswer(e){
+    const selectBttn = e.target;
+    const isCorrect = selectedBttn.dataset.correct === "true";
+    if(isCorrect){
+        selectedBttn.classList.add("correct");
+    }else{
+        selectedBttn.classList.add("incorrect");
+    }
+}
+
 // Function which will initiate quiz & show the questions and their answers
 startQuiz();
 
