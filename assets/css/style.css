@@ -2,6 +2,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Oswald', sans-serif;
     box-sizing: border-box;
 }
 
@@ -9,6 +10,7 @@ body {
     background: #cf6eff;
 }
 
+/* Quiz Styling */
 .trivia {
     background: #9266CC;
     width: 90%;
@@ -16,4 +18,42 @@ body {
     margin: 100px auto 0;
     border-radius: 12px;
     padding: 30px;
+}
+
+.trivia h1 {
+    font-size: 25px;
+    color: white;
+    font-weight: 600;
+    border-bottom: 1px solid white;
+    padding-bottom: 30px;
+}
+
+.quiz {
+    padding: 20px 0;
+}
+
+.quiz h2 {
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+}
+
+.bttn {
+    background: white;
+    color: #222;
+    font-weight: 500;
+    width: 100%;
+    border: 1px solid #222;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* Add Hover Effect */
+.bttn:hover{
+    background: #222;
+    color: white;
 }
