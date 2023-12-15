@@ -3,17 +3,17 @@ const questions = [
     {
         question: "What is the first step in wound care?",
         answers: [
-            { text: "Assess the patient & wound", correct:true},
-            { text: "Develop plan of care", correct: false},
-            { text: "Appropriate dressing for management", correct: false},
+            {text: "Assess the patient & wound", correct:true},
+            {text: "Develop plan of care", correct: false},
+            {text: "Appropriate dressing for management", correct: false},
         ]
     },
     {
         question: "What is the purpose of debridement?",
         answers: [
-            { text: "To return the wound to the proliferation phase and establish a viable wound bed", correct: false},
-            { text: "To minimize trauma", correct: false},
-            { text: "To remove infections or dead tissue", correct: true},
+            {text: "To return the wound to the proliferation phase and establish a viable wound bed", correct: false},
+            {text: "To minimize trauma", correct: false},
+            {text: "To remove infections or dead tissue", correct: true},
         ]
     }
 ];
@@ -39,15 +39,14 @@ function showQuestion(){
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = questionNo + ". " + currentQuestion.
-    question;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
     currentQuestion.answers.forEach(answer =>{
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("bttn");
         answerButtons.appendChild(button);
-        if (answer.correct) {
+        if (answer.correct){
             button.dataset.correct = answer.correct;
         }
         button.addEventListener("click", selectAnswer);
@@ -84,14 +83,14 @@ function selectAnswer(e){
 // Presents the final score and an option to restart quiz
 function showScore(){
     resetState();
-    questionElement.innerHTML = `You answer ${score} out of ${answers.length}`;
+    questionElement.innerHTML = `You answer ${score} out of ${questions.length}`;
     nextButton.innerHTML = "Retry";
     nextButton.style.display = "block";
 }
 
 function handleNextButton(){
-    currentQuestionIndex++
-    if(currentQuestionIndex < question.length){
+    currentQuestionIndex++;
+    if(currentQuestionIndex < questions.length){
         showQuestion();
     }else{
         showScore();
