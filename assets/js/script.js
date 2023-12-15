@@ -46,5 +46,9 @@ function showQuestion(){
         button.innerHTML = answer.text;
         button.classList.add("bttn");
         answerButtons.appendChild(button);
-    })
+    });
 }
+
+// Function which will initiate quiz & show the questions and their answers
+startQuiz();
+
