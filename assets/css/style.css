@@ -53,9 +53,14 @@ body {
 }
 
 /* Add Hover Effect */
-.bttn:hover {
+.bttn:hover:not([disabled]){
     background: #222;
     color: white;
+}
+
+/* Remove Hover After Selecting Answer */
+.bttn:disabled{
+    cursor: no-drop;
 }
 
 /* Next Button */
