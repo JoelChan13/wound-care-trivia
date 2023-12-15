@@ -1,3 +1,4 @@
+// Questions
 const questions = [
     {
         question: "What is the first step in wound care?",
@@ -15,4 +16,13 @@ const questions = [
             { text: "To remove infections or dead tissue", correct: true},
         ]: 
     }
-]
+];
+
+// Variables
+const questionElement = document.getElementById("question");
+const answerButtons = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("next-bttn");
+
+// Score
+let currentQuestionIndex = 0;
+let score = 0;
