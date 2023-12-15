@@ -62,6 +62,7 @@ function resetState(){
     }
 }
 
+// Prompts a colour change in buttons, highlighting correct and incorrect answers accordingly 
 function selectAnswer(e){
     const selectedBttn = e.target;
     const isCorrect = selectedBttn.dataset.correct === "true";
@@ -79,6 +80,32 @@ function selectAnswer(e){
     });
     nextButton.style.display = "block";
 }
+
+// Presents the final score and an option to restart quiz
+function showScore(){
+    resetState();
+    questionElement.innerHTML = `You answer ${score} out of ${answers.length}`;
+    nextButton.innerHTML = "Retry";
+    nextButton.style.display = "block";
+}
+
+function handleNextButton(){
+    currentQuestionIndex++
+    if(currentQuestionIndex < question.length){
+        showQuestion();
+    }else{
+        showScore();
+    }
+}
+
+// Function prompted when user clicks next button to proceed with next question
+nextButton.addEventListener("click", ()=>{
+    if(currentQuestionIndex < questions.length){
+        handleNextButton();
+    }else{
+        startQuiz();
+    }
+});
 
 // Function which will initiate quiz & show the questions and their answers
 startQuiz();
