@@ -53,7 +53,21 @@ body {
 }
 
 /* Add Hover Effect */
-.bttn:hover{
+.bttn:hover {
     background: #222;
     color: white;
+}
+
+/* Next Button*/
+#next-bttn {
+    background: #C9FF20;
+    color:#9266CC;
+    font-weight: 500;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20 auto 0;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
 }
