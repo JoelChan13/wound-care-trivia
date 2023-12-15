@@ -67,6 +67,7 @@ function selectAnswer(e){
     const isCorrect = selectedBttn.dataset.correct === "true";
     if(isCorrect){
         selectedBttn.classList.add("correct");
+        score++;
     }else{
         selectedBttn.classList.add("incorrect");
     }
