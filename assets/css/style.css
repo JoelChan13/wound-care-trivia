@@ -58,7 +58,7 @@ body {
     color: white;
 }
 
-/* Next Button*/
+/* Next Button */
 #next-bttn {
     background: #C9FF20;
     color:#9266CC;
@@ -70,4 +70,14 @@ body {
     border-radius: 5px;
     cursor: pointer;
     display: none;
+}
+
+/* Add Green Colour If Correct Answer Chosen */
+.correct {
+    background: #6CCF4D;
+}
+
+/* Add Red Colour If Incorrect Answer Chosen */
+.incorrect {
+    background: #E65750;
 }

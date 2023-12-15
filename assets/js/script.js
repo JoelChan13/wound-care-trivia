@@ -41,7 +41,6 @@ function showQuestion(){
     let questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
-    // Answers
     currentQuestion.answers.forEach(answer =>{
         const button = document.createElement("button");
         button.innerHTML = answer.text;
@@ -50,7 +49,7 @@ function showQuestion(){
         if (answer.correct) {
             button.dataset.correct = answer.correct;
         }
-        button.addEventListener("click", selectAnswer;
+        button.addEventListener("click", selectAnswer);
     });
 }
 
@@ -70,6 +69,13 @@ function selectAnswer(e){
     }else{
         selectedBttn.classList.add("incorrect");
     }
+    Array.from(answerButtons.children).forEach(button =>{
+        if(button.dataset.correct === "true"){
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
+    nextButton.style.display = "block";
 }
 
 // Function which will initiate quiz & show the questions and their answers
