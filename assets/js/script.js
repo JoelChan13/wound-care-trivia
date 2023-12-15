@@ -36,6 +36,7 @@ function startQuiz(){
 }
 
 function showQuestion(){
+    resetState();
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
@@ -47,6 +48,14 @@ function showQuestion(){
         button.classList.add("bttn");
         answerButtons.appendChild(button);
     });
+}
+
+// Function which resets the previous question and answer including HTML in index file
+function resetState(){
+    nextButton.style.display = "none";
+    while(answerButtons.firstChild){
+        answerButtons.removeChild(answerButtons.firstChild);
+    }
 }
 
 // Function which will initiate quiz & show the questions and their answers
