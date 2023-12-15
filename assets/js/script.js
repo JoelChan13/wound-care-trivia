@@ -7,14 +7,14 @@ const questions = [
             { text: "Develop plan of care", correct: false},
             { text: "Appropriate dressing for management", correct: false},
         ]
-    }
+    },
     {
         question: "What is the purpose of debridement?",
         answers: [
             { text: "To return the wound to the proliferation phase and establish a viable wound bed", correct: false},
             { text: "To minimize trauma", correct: false},
             { text: "To remove infections or dead tissue", correct: true},
-        ]: 
+        ]
     }
 ];
 
@@ -39,7 +39,8 @@ function showQuestion(){
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.
+    question;
 
     currentQuestion.answers.forEach(answer =>{
         const button = document.createElement("button");
@@ -62,7 +63,7 @@ function resetState(){
 }
 
 function selectAnswer(e){
-    const selectBttn = e.target;
+    const selectedBttn = e.target;
     const isCorrect = selectedBttn.dataset.correct === "true";
     if(isCorrect){
         selectedBttn.classList.add("correct");
