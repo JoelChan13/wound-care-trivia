@@ -15,6 +15,14 @@ const questions = [
             {text: "To minimize trauma", correct: false},
             {text: "To remove infections or dead tissue", correct: true},
         ]
+    },
+    {
+        question: "What is the colour assessment of wound exudate focused on?",
+        answers: [
+            { text: "Colour, consistency, odour, amount", correct: true },
+            { text: "Colour, consistency, odour", correct: false },
+            { text: "Colour, consistency", correct: false },
+        ]
     }
 ];
 
@@ -37,8 +45,7 @@ function startQuiz(){
 
 function showQuestion(){
     resetState();
-    const currentQuestion = questions[currentQuestionIndex];
-    curre
+    let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
