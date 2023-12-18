@@ -27,8 +27,22 @@ var questions = [
 ];
 
 // Variables
+
+// Shuffle the questions
+function shuffleQuestions() {
+for (let i = questions.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [questions[i], questions[j]] = [questions[j], questions[i]];
+   }
+}
+
+//Replace questions in HTML file with questions from linked Javascript file 
 const questionElement = document.getElementById("question");
+
+
 const answerButtons = document.getElementById("answer-buttons");
+
+
 const nextButton = document.getElementById("next-bttn");
 
 // Score
@@ -40,6 +54,7 @@ function startQuiz(){
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
+    shuffleQuestions();
     showQuestion();
 }
 
