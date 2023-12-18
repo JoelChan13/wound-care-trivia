@@ -1,5 +1,5 @@
 // Questions
-const questions = [
+var questions = [
     {
         question: "What is the first step in wound care?",
         answers: [
@@ -91,7 +91,7 @@ function selectAnswer(e){
 // Presents the final score and an option to restart quiz
 function showScore(){
     resetState();
-    questionElement.innerHTML = `You answer ${score} out of ${questions.length}`;
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}`;
     nextButton.innerHTML = "Retry";
     nextButton.style.display = "block";
 }
