@@ -28,7 +28,7 @@ var questions = [
 
 // Variables
 
-// Shuffle the questions
+// Shuffle questions
 function shuffleQuestions() {
 for (let i = questions.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -39,6 +39,15 @@ for (let i = questions.length - 1; i > 0; i--) {
 //Replace questions in HTML file with questions from linked Javascript file 
 const questionElement = document.getElementById("question");
 
+// Shuffle answers
+function shuffleAnswers() {
+questions.forEach(question => {
+    for (let i = question.answers.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [question.answers[i], question.answers[j]] = [question.answers[j], question.answers[i]];
+    }
+ })
+};
 
 const answerButtons = document.getElementById("answer-buttons");
 
@@ -55,6 +64,7 @@ function startQuiz(){
     score = 0;
     nextButton.innerHTML = "Next";
     shuffleQuestions();
+    shuffleAnswers()
     showQuestion();
 }
 
