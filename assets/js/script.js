@@ -23,6 +23,102 @@ var questions = [
             { text: "Colour, consistency, odour", correct: false },
             { text: "Colour, consistency", correct: false },
         ]
+    },
+    {
+        question: "What is the most common type of wound?",
+        answers: [
+            { text: "Arterial", correct: false },
+            { text: "Venous", correct: true },
+            { text: "Diabetic", correct: false },
+        ]
+    },
+    {
+        question: "What is the most common cause of venous ulcers?",
+        answers: [
+            { text: "Trauma", correct: false },
+            { text: "Infection", correct: false },
+            { text: "Venous insufficiency", correct: true },
+        ]
+    },
+    {
+        question: "What is the most common cause of arterial ulcers? ",
+        answers: [
+            { text: "Trauma", correct: false },
+            { text: "Infection", correct: false },
+            { text: "Arterial insufficiency", correct: true },
+        ]
+    },
+    {
+        question: "What is the most common cause of diabetic ulcers?",
+        answers: [
+            { text: "Uncontrolled blood-sugar levels", correct: false },
+            { text: "Diabetic neuropathy", correct: true },
+            { text: "Venous/Arterial insufficiency", correct: false },
+        ]
+    },
+    {
+        question: "What is the most common dressing used to treat venous ulcers?",
+        answers: [
+            {text: "Alginate-based dressings", correct: false},
+            {text: "Compression", correct: true},
+            {text: "Hydrocolloid", correct: false},
+        ]
+    },
+    {
+        question: "What is the most common dressing used to treat pressure ulcers?",
+        answers: [
+            {text: "Foam dressing", correct: true},
+            {text: "Charcoal dressing", correct: false},
+            {text: "Hydrocolloid", correct: false},
+        ]
+    },
+    {
+        question: "What is the best way to prevent pressure ulcers from forming?",
+        answers: [
+            { text: "Change position frequently", correct: true },
+            { text: "Use a pressure-relieving mattress/cushion", correct: false },
+            { text: "Apply barrier cream", correct: false },
+        ]
+    },
+    {
+        question: "What is the best way to manage a wound with heavy exudate?",
+        answers: [
+            { text: "Use a hydrofiber dressing", correct: true },
+            { text: "Use a foam dressing", correct: false },
+            { text: "Use a transparent film dressing", correct: false },
+        ]
+    },
+    {
+        question: "What is the most important factor in wound healing?",
+        answers: [
+            { text: "Rest", correct: false },
+            { text: "Exercise", correct: false },
+            { text: "Optimal nutrition", correct: true },
+        ]
+    },
+    {
+        question: "What is the best way to manage a wound with minimal exudate?",
+        answers: [
+            {text: "Use a hydrocolloid dressing", correct: true},
+            {text: "Use a hydrogel dressing", correct: false},
+            {text: "Use a silicone gel sheet", correct: false},
+        ]
+    },
+    {
+        question: "What is the  best way to manage a wound with exposed bone or tendon?",
+        answers: [
+            {text: "Use a hydrocolloid dressing", correct: false},
+            {text: "Use a collagen dressing", correct: true},
+            {text: "Use a silver dressing", correct: false},
+        ]
+    },
+    {
+        question: "What is the best way to manage a wound with a foul odor?",
+        answers: [
+            {text: "Use a charcoal dressing", correct: true},
+            {text: "Use a silver dressing", correct: false},
+            {text: "Use an alginate dressing", correct: false},
+        ]
     }
 ];
 
