@@ -28,7 +28,7 @@ body #hero {
 }
 
 /* Home Page Buttons */
-.homebtns {
+.selectorbtns {
     font-size: 2rem;
     padding: 1rem 0;
     width: 20rem;
@@ -42,7 +42,7 @@ body #hero {
 }
 
 /* Add/Disable Hover Effect to Home Buttons */
-.homebtns:hover {
+.selectorbtns:hover {
     cursor: pointer;
     box-shadow: 0 0.5rem 1.5rem 0 steelblue;
     background-color: steelblue;
@@ -51,7 +51,7 @@ body #hero {
     transition: transform 150ms;
 }
 
-.homebtns[disabled]:hover {
+.selectorbtns[disabled]:hover {
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
@@ -137,4 +137,25 @@ body #hero {
 .incorrect {
     background: #E65750;
     color: white;
+}
+
+/* Forms */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    margin-bottom: 1rem;
+    width: 20rem;
+    padding: 1.5rem;
+    font-size: 2rem;
+    border: none;
+    box-shadow: 0 0.1rem 1.5rem 0 steelblue;
+}
+
+input::placeholder {
+    color: #aaa;
 }
