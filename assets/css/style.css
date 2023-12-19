@@ -19,8 +19,30 @@ body #hero {
     position: relative;
 }
 
+/* Home Page */
+#home.flex-properties {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Home Page Buttons */
+.homebtns {
+    font-size: 2rem;
+    padding: 1rem 0;
+    width: 20rem;
+    text-align: center;
+    border: 0.2rem solid lightsteelblue;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: lightsteelblue;
+    background-color: white;
+    border-radius: 10px;
+}
+
 /* Quiz Styling */
-.trivia {
+.quiz-box {
     background: rgba(176, 196, 222, 0.7);
     width: 90%;
     max-width: 600px;
@@ -28,10 +50,10 @@ body #hero {
     border-radius: 12px;
     padding: 30px;
     position: relative;
-    top: 20vh;
+    top: 22vh;
 }
 
-.trivia h1 {
+.quiz-box h1 {
     font-size: 3rem;
     color: white;
     font-weight: 600;
@@ -52,10 +74,10 @@ body #hero {
 
 .bttn {
     background: white;
-    color: #222;
+    color: steelblue;
     font-weight: 500;
     width: 100%;
-    border: 1px solid #222;
+    border: 1px solid lightsteelblue;
     padding: 10px;
     margin: 10px 0;
     text-align: left;
@@ -66,7 +88,7 @@ body #hero {
 
 /* Add Hover Effect */
 .bttn:hover:not([disabled]){
-    background: #222;
+    background: lightsteelblue;
     color: white;
 }
 
@@ -78,7 +100,7 @@ body #hero {
 /* Next Button */
 #next-bttn {
     background: #C9FF20;
-    color:#9266CC;
+    color:white;
     font-weight: 500;
     width: 150px;
     border: 0;
@@ -92,9 +114,11 @@ body #hero {
 /* Add Green Colour If Correct Answer Chosen */
 .correct {
     background: #6CCF4D;
+    color: white;
 }
 
 /* Add Red Colour If Incorrect Answer Chosen */
 .incorrect {
     background: #E65750;
+    color: white;
 }
