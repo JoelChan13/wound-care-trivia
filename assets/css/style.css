@@ -27,11 +27,27 @@ body #hero {
     flex-direction: column;
 }
 
+#home #username-input {
+    color: lightsteelblue;
+    font-size: 2rem;
+    padding: 1rem 0;
+    width: 100%;
+    text-align: center;
+    border: 0.2rem solid lightsteelblue;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 10px;
+    display: inherit;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Home Page Buttons */
 .selectorbtns {
     font-size: 2rem;
     padding: 1rem 0;
-    width: 20rem;
+    width: 100%;
     text-align: center;
     border: 0.2rem solid lightsteelblue;
     margin-bottom: 1rem;
@@ -39,6 +55,9 @@ body #hero {
     color: lightsteelblue;
     background-color: white;
     border-radius: 10px;
+    display: inherit;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Add/Disable Hover Effect to Home Buttons */
@@ -73,8 +92,8 @@ body #hero {
     font-size: 3rem;
     color: white;
     font-weight: 600;
-    border-bottom: 1px solid white;
-    padding-bottom: 30px;
+    border-bottom: 1px;
+    padding-bottom: 20px;
     text-align: center;
 }
 
@@ -158,4 +177,6 @@ input {
 
 input::placeholder {
     color: #aaa;
+    align-items: center;
+    text-align: center;
 }

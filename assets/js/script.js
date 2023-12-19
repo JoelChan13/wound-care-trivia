@@ -209,14 +209,20 @@ function selectAnswer(e){
     nextButton.style.display = "block";
 }
 
-// Function which shows next question, if no more questions available, saves score
+// Presents the final score and an option to restart quiz
+function showScore() {
+    resetState();
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}`;
+    nextButton.innerHTML = "Retry";
+    nextButton.style.display = "block";
+}
+
 function handleNextButton() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
         showQuestion();
     } else {
-        localStorage.setItem("latestScore", score);
-        return window.location.assign("/result-page.html");
+        showScore();
     }
 }
 
@@ -228,18 +234,5 @@ nextButton.addEventListener("click", ()=>{
         startQuiz();
     }
 });
-
-// Result Page
-const username = document.getElementById('username');
-const saveBtn = document.getElementById('saveBtn');
-const scoreCard = document.getElementById('scoreCard');
-const latestScore = localStorage.getItem('latestScore');
-scoreCard.innerText = latestScore;
-
-// Username in Result Page
-
- 
-
 // Function which will initiate quiz & show the questions and their answers
 startQuiz();
-
