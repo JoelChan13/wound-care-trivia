@@ -27,6 +27,8 @@ body #hero {
     margin: auto;
     border-radius: 12px;
     padding: 30px;
+    position: relative;
+    top: 20vh;
 }
 
 .trivia h1 {
