@@ -41,6 +41,22 @@ body #hero {
     border-radius: 10px;
 }
 
+/* Add/Disable Hover Effect to Home Buttons */
+.homebtns:hover {
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1.5rem 0 steelblue;
+    background-color: steelblue;
+    color: white;
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+
+.homebtns[disabled]:hover {
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
 /* Quiz Styling */
 .quiz-box {
     background: rgba(176, 196, 222, 0.7);
