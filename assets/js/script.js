@@ -233,7 +233,7 @@ function selectAnswer(e){
 // Presents the final score and options to retry or return to home
 function showScore() {
     resetState();
-    const finalScore = `Hello, ${username}! You scored ${score} out of ${questions.length}`;
+    const finalScore = `Well done ${username}! You scored ${score} out of ${questions.length}`;
     questionElement.innerHTML = finalScore;
 
     // Store the score in localStorage
@@ -267,5 +267,12 @@ nextButton.addEventListener("click", ()=>{
         startQuiz();
     }
 });
+
+// Function to handle the return to home button
+function returnToHome() {
+    resetState();
+    startQuiz();
+}
+
 // Function which will initiate quiz & show the questions and their answers
 startQuiz();

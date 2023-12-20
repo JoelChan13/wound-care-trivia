@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,25 +15,37 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Title -->
-    <title>Wound Care Trivia - Home</title>
+    <title>Wound Care Trivia - High Scores</title>
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 </head>
+
 <body>
     <section id="hero">
-    <div class="quiz-box">
-        <div id="home" class="flex-properties">
-            <h1>Wound Care Trivia</h1>
-            <a class="selectorbtns" href="/wound-care-trivia.html">Start</a>
-            <a class="selectorbtns" href="/highscores.html">High Scores</a>
+        <div class="quiz-box">
+            <div id="home" class="flex-properties">
+                <h1>High Scores</h1>
+                <table id="highScoresTable">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- This section will be filled by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
         </div>
+        <script src="assets/js/script.js"></script>
     </section>
+</body>
 
-
-    </div>
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>
