@@ -262,6 +262,12 @@ function showScore() {
 
     // Buttons for retry and return to home
     nextButton.innerHTML = "Retry";
+    const retryButton = document.createElement("button");
+    retryButton.innerHTML = "Retry";
+    retryButton.classList.add("bttn");
+    retryButton.addEventListener("click", startQuiz);
+    answerButtons.appendChild(retryButton);
+
     const homeButton = document.createElement("button");
     homeButton.innerHTML = "Return to Home";
     homeButton.classList.add("bttn");
@@ -274,22 +280,26 @@ function showScore() {
 // Function to display high scores in the table
 function displayHighScores() {
     const highScoresTable = document.getElementById("highScoresTable");
-    const tbody = highScoresTable.querySelector("tbody");
+    if (highScoresTable) {
+        const tbody = highScoresTable.querySelector("tbody");
 
-    // Clear previous entries
-    tbody.innerHTML = "";
+        // Clear previous entries
+        tbody.innerHTML = "";
 
-    // Add new entries
-    highScores.forEach(entry => {
-        const row = document.createElement("tr");
-        const usernameCell = document.createElement("td");
-        usernameCell.textContent = entry.username;
-        const scoreCell = document.createElement("td");
-        scoreCell.textContent = entry.score;
-        row.appendChild(usernameCell);
-        row.appendChild(scoreCell);
-        tbody.appendChild(row);
-    });
+        // Add new entries
+        highScores.forEach(entry => {
+            const row = document.createElement("tr");
+            const usernameCell = document.createElement("td");
+            usernameCell.textContent = entry.username;
+            const scoreCell = document.createElement("td");
+            scoreCell.textContent = entry.score;
+            row.appendChild(usernameCell);
+            row.appendChild(scoreCell);
+            tbody.appendChild(row);
+        });
+    } else {
+        console.error("highScoresTable not found in HTML");
+    }
 }
 
 function handleNextButton() {
@@ -298,6 +308,25 @@ function handleNextButton() {
         showQuestion();
     } else {
         showScore();
+
+        // Display high scores in the table
+        displayHighScores();
+
+        // Buttons for retry and return to home
+        nextButton.innerHTML = "Retry";
+        const retryButton = document.createElement("button");
+        retryButton.innerHTML = "Retry";
+        retryButton.classList.add("bttn");
+        retryButton.addEventListener("click", startQuiz);
+        answerButtons.appendChild(retryButton);
+
+        const homeButton = document.createElement("button");
+        homeButton.innerHTML = "Return to Home";
+        homeButton.classList.add("bttn");
+        homeButton.addEventListener("click", returnToHome);
+        answerButtons.appendChild(homeButton);
+
+        nextButton.style.display = "block";
     }
 }
 
