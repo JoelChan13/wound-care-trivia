@@ -239,7 +239,18 @@ function showScore() {
     const finalScore = `Well done ${username}! You scored ${score} out of ${questions.length}`;
     questionElement.innerHTML = finalScore;
 
-    // Store the score in localStorage
+       // Buttons for return to home
+    
+    const homeButton = document.createElement("button");
+    homeButton.innerHTML = "Return to Home";
+    homeButton.classList.add("bttn");
+    homeButton.addEventListener("click", returnToHome);
+    answerButtons.appendChild(homeButton);
+
+    nextButton.style.display = "block";
+}
+
+ // Store the score in localStorage
     localStorage.setItem("quizScore", score);
 
     // Add the current score to the high scores
@@ -259,23 +270,6 @@ function showScore() {
 
     // Display high scores in the table
     displayHighScores();
-
-    // Buttons for retry and return to home
-    nextButton.innerHTML = "Retry";
-    const retryButton = document.createElement("button");
-    retryButton.innerHTML = "Retry";
-    retryButton.classList.add("bttn");
-    retryButton.addEventListener("click", startQuiz);
-    answerButtons.appendChild(retryButton);
-
-    const homeButton = document.createElement("button");
-    homeButton.innerHTML = "Return to Home";
-    homeButton.classList.add("bttn");
-    homeButton.addEventListener("click", returnToHome);
-    answerButtons.appendChild(homeButton);
-
-    nextButton.style.display = "block";
-}
 
 // Function to display high scores in the table
 function displayHighScores() {
@@ -311,22 +305,6 @@ function handleNextButton() {
 
         // Display high scores in the table
         displayHighScores();
-
-        // Buttons for retry and return to home
-        nextButton.innerHTML = "Retry";
-        const retryButton = document.createElement("button");
-        retryButton.innerHTML = "Retry";
-        retryButton.classList.add("bttn");
-        retryButton.addEventListener("click", startQuiz);
-        answerButtons.appendChild(retryButton);
-
-        const homeButton = document.createElement("button");
-        homeButton.innerHTML = "Return to Home";
-        homeButton.classList.add("bttn");
-        homeButton.addEventListener("click", returnToHome);
-        answerButtons.appendChild(homeButton);
-
-        nextButton.style.display = "block";
     }
 }
 
