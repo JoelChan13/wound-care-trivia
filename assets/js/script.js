@@ -239,7 +239,14 @@ function showScore() {
     // Store the score in localStorage
     localStorage.setItem("quizScore", score);
 
+    // Buttons for retry and return to home
     nextButton.innerHTML = "Retry";
+    const homeButton = document.createElement("button");
+    homeButton.innerHTML = "Return to Home";
+    homeButton.classList.add("bttn");
+    homeButton.addEventListener("click", returnToHome);
+    answerButtons.appendChild(homeButton);
+
     nextButton.style.display = "block";
 }
 
