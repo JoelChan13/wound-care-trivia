@@ -245,6 +245,12 @@ function showScore() {
     // Add the current score to the high scores
     highScores.push({ username, score });
 
+    // Sort high scores in descending order
+    highScores.sort((a, b) => b.score - a.score);
+
+    // Keep only the top 5 scores
+    highScores = highScores.slice(0, 5);
+
     // Buttons for retry and return to home
     nextButton.innerHTML = "Retry";
     const homeButton = document.createElement("button");
