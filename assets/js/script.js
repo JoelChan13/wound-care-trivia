@@ -230,10 +230,10 @@ function selectAnswer(e){
     nextButton.style.display = "block";
 }
 
-// Presents the final score and an option to restart quiz
+// Presents the final score and options to retry or return to home
 function showScore() {
     resetState();
-    const finalScore = `You scored ${score} out of ${questions.length}`;
+    const finalScore = `Hello, ${username}! You scored ${score} out of ${questions.length}`;
     questionElement.innerHTML = finalScore;
 
     // Store the score in localStorage
