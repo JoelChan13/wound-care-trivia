@@ -257,7 +257,9 @@ function showScore() {
     // Display high scores in the console
     console.log("High Scores:", highScores);
 
-    
+    // Display high scores in the table
+    displayHighScores();
+
     // Buttons for retry and return to home
     nextButton.innerHTML = "Retry";
     const homeButton = document.createElement("button");
@@ -267,6 +269,27 @@ function showScore() {
     answerButtons.appendChild(homeButton);
 
     nextButton.style.display = "block";
+}
+
+// Function to display high scores in the table
+function displayHighScores() {
+    const highScoresTable = document.getElementById("highScoresTable");
+    const tbody = highScoresTable.querySelector("tbody");
+
+    // Clear previous entries
+    tbody.innerHTML = "";
+
+    // Add new entries
+    highScores.forEach(entry => {
+        const row = document.createElement("tr");
+        const usernameCell = document.createElement("td");
+        usernameCell.textContent = entry.username;
+        const scoreCell = document.createElement("td");
+        scoreCell.textContent = entry.score;
+        row.appendChild(usernameCell);
+        row.appendChild(scoreCell);
+        tbody.appendChild(row);
+    });
 }
 
 function handleNextButton() {
