@@ -242,6 +242,9 @@ function showScore() {
     // Store the score in localStorage
     localStorage.setItem("quizScore", score);
 
+    // Add the current score to the high scores
+    highScores.push({ username, score });
+
     // Buttons for retry and return to home
     nextButton.innerHTML = "Retry";
     const homeButton = document.createElement("button");
