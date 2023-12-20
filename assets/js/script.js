@@ -154,13 +154,22 @@ const nextButton = document.getElementById("next-bttn");
 let currentQuestionIndex = 0;
 let score = 0;
 
+// Retrieve the previous score from localStorage
+let previousScore = localStorage.getItem("quizScore");
+
 // Start Quiz - Reset Questions & Show Next Question
 function startQuiz(){
     currentQuestionIndex = 0;
     score = 0;
+
+    // Display the previous score if available
+    if (previousScore !== null) {
+        alert("Previous Score: " + previousScore);
+    }
+
     nextButton.innerHTML = "Next";
     shuffleQuestions();
-    shuffleAnswers()
+    shuffleAnswers();
     showQuestion();
 }
 
@@ -212,7 +221,12 @@ function selectAnswer(e){
 // Presents the final score and an option to restart quiz
 function showScore() {
     resetState();
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length}`;
+    const finalScore = `You scored ${score} out of ${questions.length}`;
+    questionElement.innerHTML = finalScore;
+
+    // Store the score in localStorage
+    localStorage.setItem("quizScore", score);
+
     nextButton.innerHTML = "Retry";
     nextButton.style.display = "block";
 }
