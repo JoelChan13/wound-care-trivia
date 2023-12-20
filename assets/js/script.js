@@ -122,16 +122,6 @@ var questions = [
     }
 ];
 
-// Check if the page was loaded from the cache
-if ('caches' in window) {
-    caches.match(window.location.href).then(function (response) {
-        // If the page was loaded from the cache, redirect to index.html
-        if (response) {
-            window.location.href = "index.html";
-        }
-    });
-}
-
 // Retrieve the previous score and username from localStorage
 let previousScore = localStorage.getItem("quizScore");
 let previousUsername = localStorage.getItem("quizUsername");
@@ -174,7 +164,6 @@ let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
 // Start Quiz - Reset Questions & Show Next Question
 function startQuiz(){
-    
     currentQuestionIndex = 0;
     score = 0;
     username = "";
