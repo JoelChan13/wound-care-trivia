@@ -274,5 +274,8 @@ function returnToHome() {
     startQuiz();
 }
 
+// Call the function to display top 5 high scores on the highscores.html page
+displayHighScores();
+
 // Function which will initiate quiz & show the questions and their answers
 startQuiz();
