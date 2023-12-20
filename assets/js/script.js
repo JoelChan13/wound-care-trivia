@@ -150,21 +150,27 @@ const answerButtons = document.getElementById("answer-buttons");
 
 const nextButton = document.getElementById("next-bttn");
 
-// Score
+// Score & Username
 let currentQuestionIndex = 0;
 let score = 0;
+let username = "";
 
-// Retrieve the previous score from localStorage
+// Retrieve the previous score and username from localStorage
 let previousScore = localStorage.getItem("quizScore");
+let previousUsername = localStorage.getItem("quizUsername");
 
 // Start Quiz - Reset Questions & Show Next Question
 function startQuiz(){
     currentQuestionIndex = 0;
     score = 0;
+    username = "";
 
-    // Display the previous score if available
+    // Display the previous score and username if available
     if (previousScore !== null) {
         alert("Previous Score: " + previousScore);
+    }
+    if (previousUsername !== null) {
+        username = previousUsername;
     }
 
     nextButton.innerHTML = "Next";
