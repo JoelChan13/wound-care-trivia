@@ -239,8 +239,11 @@ function showScore() {
     const finalScore = `Well done ${username}! You scored ${score} out of ${questions.length}`;
     questionElement.innerHTML = finalScore;
 
-       // Buttons for return to home
-    
+    // Store the score in localStorage
+    localStorage.setItem("quizScore", score);
+
+    // Buttons for retry and return to home
+    nextButton.innerHTML = "Retry";
     const homeButton = document.createElement("button");
     homeButton.innerHTML = "Return to Home";
     homeButton.classList.add("bttn");
@@ -249,9 +252,6 @@ function showScore() {
 
     nextButton.style.display = "block";
 }
-
- // Store the score in localStorage
-    localStorage.setItem("quizScore", score);
 
     // Add the current score to the high scores
     highScores.push({ username, score });
@@ -305,6 +305,7 @@ function handleNextButton() {
 
         // Display high scores in the table
         displayHighScores();
+
     }
 }
 
