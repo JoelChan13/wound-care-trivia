@@ -173,6 +173,9 @@ function startQuiz(){
         username = previousUsername;
     }
 
+    // Prompt user for username
+    username = prompt("Enter your username:", username);
+
     nextButton.innerHTML = "Next";
     shuffleQuestions();
     shuffleAnswers();
