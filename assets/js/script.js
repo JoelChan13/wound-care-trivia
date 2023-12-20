@@ -159,6 +159,9 @@ let username = "";
 let previousScore = localStorage.getItem("quizScore");
 let previousUsername = localStorage.getItem("quizUsername");
 
+// Retrieve high scores from localStorage
+let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
 // Start Quiz - Reset Questions & Show Next Question
 function startQuiz(){
     currentQuestionIndex = 0;
@@ -273,9 +276,6 @@ function returnToHome() {
     resetState();
     startQuiz();
 }
-
-// Call the function to display top 5 high scores on the highscores.html page
-displayHighScores();
 
 // Function which will initiate quiz & show the questions and their answers
 startQuiz();
