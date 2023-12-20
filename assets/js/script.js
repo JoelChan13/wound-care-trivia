@@ -122,6 +122,20 @@ var questions = [
     }
 ];
 
+// Check if the page was loaded from the cache
+if ('caches' in window) {
+    caches.match(window.location.href).then(function (response) {
+        // If the page was loaded from the cache, redirect to index.html
+        if (response) {
+            window.location.href = "index.html";
+        }
+    });
+}
+
+// Retrieve the previous score and username from localStorage
+let previousScore = localStorage.getItem("quizScore");
+let previousUsername = localStorage.getItem("quizUsername");
+
 // Variables
 
 // Shuffle questions
@@ -155,15 +169,19 @@ let currentQuestionIndex = 0;
 let score = 0;
 let username = "";
 
-// Retrieve the previous score and username from localStorage
-let previousScore = localStorage.getItem("quizScore");
-let previousUsername = localStorage.getItem("quizUsername");
-
 // Retrieve high scores from localStorage
 let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
 // Start Quiz - Reset Questions & Show Next Question
 function startQuiz(){
+    // Check if the user is refreshing the page without completing the quiz
+    if (previousScore !== null && previousUsername !== null) {
+        // Inform the user that the score will not be saved
+        alert("You are refreshing the page. Your score will not be saved.");
+        // Redirect to index.html
+        window.location.href = "index.html";
+        return;
+    }
     currentQuestionIndex = 0;
     score = 0;
     username = "";
