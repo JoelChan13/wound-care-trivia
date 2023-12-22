@@ -122,12 +122,11 @@ var questions = [
     }
 ];
 
-// Score & Username
-let currentQuestionIndex = 0;
-let score = 0;
-let username = "";
-
 // Variables
+
+//Replace questions in HTML file with questions from linked Javascript file 
+const questionElement = document.getElementById("question");
+
 
 // Shuffle questions
 function shuffleQuestions() {
@@ -137,9 +136,6 @@ function shuffleQuestions() {
     }
 }
 
-// Replace questions in HTML file with questions from linked Javascript file 
-const questionElement = document.getElementById("question");
-
 // Shuffle answers
 function shuffleAnswers() {
     questions.forEach(question => {
@@ -148,17 +144,25 @@ function shuffleAnswers() {
             [question.answers[i], question.answers[j]] = [question.answers[j], question.answers[i]];
         }
     });
-}
+};
 
 const answerButtons = document.getElementById("answer-buttons");
 
 const nextButton = document.getElementById("next-bttn");
 
+// Score & Username
+let currentQuestionIndex = 0;
+let score = 0;
+let username = "";
+
 // Start Quiz - Reset Questions & Show Next Question
 function startQuiz() {
+    // Ask the user for a username and store it in localStorage
+    username = prompt("Please enter your username:");
+    localStorage.setItem("username", username);
+
     currentQuestionIndex = 0;
     score = 0;
-    username = "";
 
     nextButton.innerHTML = "Next";
     shuffleQuestions();
@@ -192,7 +196,7 @@ function resetState() {
     }
 }
 
-// Prompts a color change in buttons, highlighting correct and incorrect answers accordingly 
+// Prompts a colour change in buttons, highlighting correct and incorrect answers accordingly 
 function selectAnswer(e) {
     const selectedBttn = e.target;
     const isCorrect = selectedBttn.dataset.correct === "true";
@@ -211,12 +215,57 @@ function selectAnswer(e) {
     nextButton.style.display = "block";
 }
 
+// Presents the final score and options to retry or return to home
+function showScore() {
+    resetState();
+
+    // Retrieve the username from localStorage
+    const storedUsername = localStorage.getItem("username");
+
+    // Retrieve the scores object from localStorage or initialize it to an empty object
+    const scoresObject = JSON.parse(localStorage.getItem("scoresObject")) || {};
+
+    // Retrieve the previous score for the current username or initialize it to an empty array
+    const userScores = scoresObject[storedUsername] || [];
+
+    // Add the current score to the userScores array
+    userScores.push(score);
+
+    // Sort the userScores array in descending order
+    userScores.sort((a, b) => b - a);
+
+    // Store the userScores array in the scoresObject
+    scoresObject[storedUsername] = userScores;
+
+    // Store the scoresObject back in localStorage
+    localStorage.setItem("scoresObject", JSON.stringify(scoresObject));
+
+    // Display the final score message
+    const finalScore = `Well done ${storedUsername}! You scored ${score} out of ${questions.length}. Your previous scores are: ${userScores.join(", ")}.`;
+    questionElement.innerHTML = finalScore;
+
+    // Buttons for retry and return to home
+    nextButton.innerHTML = "Retry";
+    const homeButton = document.createElement("button");
+    homeButton.innerHTML = "Return to Home";
+    homeButton.classList.add("bttn");
+    homeButton.addEventListener("click", returnToHome);
+    answerButtons.appendChild(homeButton);
+
+    nextButton.style.display = "block";
+}
+
+
 function handleNextButton() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
         showQuestion();
     } else {
         showScore();
+
+        // Display high scores in the table
+        displayHighScores();
+
     }
 }
 
@@ -229,79 +278,10 @@ nextButton.addEventListener("click", () => {
     }
 });
 
-// Function to handle the return home button
+// Function to handle the return to home button
 function returnToHome() {
     resetState();
-    promptForUsername();
-}
-
-// Function to prompt the user for a username
-function promptForUsername() {
-    const enteredUsername = prompt("Enter your username:");
-    if (enteredUsername !== null && enteredUsername !== "") {
-        username = enteredUsername;
-        saveScore();
-        startQuiz();
-    } else {
-        // If the user cancels or enters an empty username, show the score again
-        showScore();
-    }
-}
-
-// Function to save the username and score in local storage
-function saveScore() {
-    const userScore = {
-        username: username,
-        score: score
-    };
-    const scores = JSON.parse(localStorage.getItem("quizScores")) || [];
-    scores.push(userScore);
-    localStorage.setItem("quizScores", JSON.stringify(scores));
-
-    // Log to console
-    console.log(`Username: ${username}, Score: ${score}`);
-}
-
-// Function to display high scores in the highscores.html table
-function displayHighScores() {
-    const highScoresTable = document.getElementById("highScoresTable");
-    const highScores = getHighScoresFromLocalStorage();
-
-    // Clear the existing table content
-    highScoresTable.querySelector("tbody").innerHTML = "";
-
-    // Populate the table with high scores
-    highScores.forEach(score => {
-        const row = highScoresTable.insertRow(-1);
-        const cell1 = row.insertCell(0);
-        const cell2 = row.insertCell(1);
-
-        cell1.textContent = score.username;
-        cell2.textContent = score.score;
-    });
-}
-
-// Function to get high scores from local storage
-function getHighScoresFromLocalStorage() {
-    const scores = JSON.parse(localStorage.getItem("quizScores")) || [];
-    return scores.sort((a, b) => b.score - a.score).slice(0, 10); // Get the top 10 scores
-}
-
-// Presents the final score and options to retry or return home
-function showScore() {
-    resetState();
-    const finalScore = `Well done ${username}! You scored ${score} out of ${questions.length}`;
-    questionElement.innerHTML = finalScore;
-
-    // Buttons for retry and return home
-    nextButton.innerHTML = "Retry";
-    const homeButton = document.createElement("button");
-    homeButton.innerHTML = "Return to Home";
-    homeButton.classList.add("bttn");
-    homeButton.addEventListener("click", returnToHome);
-    answerButtons.appendChild(homeButton);
-
-    nextButton.style.display = "block";
+    startQuiz();
 }
 
 // Function which will initiate quiz & show the questions and their answers
