@@ -217,6 +217,7 @@ function handleNextButton() {
         showQuestion();
     } else {
         showScore();
+        promptForUsername();
     }
 }
 
@@ -232,7 +233,6 @@ nextButton.addEventListener("click", () => {
 // Function to handle the return home button
 function returnToHome() {
     resetState();
-    promptForUsername();
 }
 
 // Function to prompt the user for a username
@@ -260,6 +260,31 @@ function saveScore() {
 
     // Log to console
     console.log(`Username: ${username}, Score: ${score}`);
+}
+
+// Function to display high scores in the highscores.html table
+function displayHighScores() {
+    const highScoresTable = document.getElementById("highScoresTable");
+    const highScores = getHighScoresFromLocalStorage();
+
+    // Clear the existing table content
+    highScoresTable.querySelector("tbody").innerHTML = "";
+
+    // Populate the table with high scores
+    highScores.forEach(score => {
+        const row = highScoresTable.insertRow(-1);
+        const cell1 = row.insertCell(0);
+        const cell2 = row.insertCell(1);
+
+        cell1.textContent = score.username;
+        cell2.textContent = score.score;
+    });
+}
+
+// Function to get high scores from local storage
+function getHighScoresFromLocalStorage() {
+    const scores = JSON.parse(localStorage.getItem("quizScores")) || [];
+    return scores.sort((a, b) => b.score - a.score).slice(0, 10); // Get the top 10 scores
 }
 
 // Presents the final score and options to retry or return home
