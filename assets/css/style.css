@@ -11,6 +11,10 @@ body {
     height: 600px;
     width: 100%;
 }
+
+h1 {
+    color: lightsteelblue;
+}
 /* Hero Image */
 body #hero {
     height: 120vh;
@@ -118,13 +122,14 @@ body #hero {
 
 /* Next Button */
 #next-bttn {
-    background: #C9FF20;
+    background: steelblue;
     color:white;
-    font-weight: 500;
+    font-weight: bolder;
+    font-size: large;
     width: 150px;
     border: 0;
     padding: 10px;
-    margin: 20 auto 0;
+    margin: auto;
     border-radius: 5px;
     cursor: pointer;
     display: none;
@@ -162,5 +167,21 @@ input {
 input::placeholder {
     color: #aaa;
     align-items: center;
+    text-align: center;
+}
+
+/* High Scores Table */
+#highScoresTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    color: white;
+}
+
+#highScoresTable th,
+#highScoresTable td {
+    border: 1px solid steelblue;
+    padding: 8px;
     text-align: center;
 }
