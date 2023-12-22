@@ -122,65 +122,43 @@ var questions = [
     }
 ];
 
-// Retrieve the previous score and username from localStorage
-let previousScore = localStorage.getItem("quizScore");
-let previousUsername = localStorage.getItem("quizUsername");
-
-// Variables
-
-// Shuffle questions
-function shuffleQuestions() {
-for (let i = questions.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [questions[i], questions[j]] = [questions[j], questions[i]];
-   }
-}
-
-//Replace questions in HTML file with questions from linked Javascript file 
-const questionElement = document.getElementById("question");
-
-// Shuffle answers
-function shuffleAnswers() {
-questions.forEach(question => {
-    for (let i = question.answers.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [question.answers[i], question.answers[j]] = [question.answers[j], question.answers[i]];
-    }
- })
-};
-
-const answerButtons = document.getElementById("answer-buttons");
-
-
-const nextButton = document.getElementById("next-bttn");
-
 // Score & Username
 let currentQuestionIndex = 0;
 let score = 0;
 let username = "";
 
-// Retrieve high scores from localStorage
-let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+// Variables
+
+// Shuffle questions
+function shuffleQuestions() {
+    for (let i = questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [questions[i], questions[j]] = [questions[j], questions[i]];
+    }
+}
+
+// Replace questions in HTML file with questions from linked Javascript file 
+const questionElement = document.getElementById("question");
+
+// Shuffle answers
+function shuffleAnswers() {
+    questions.forEach(question => {
+        for (let i = question.answers.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [question.answers[i], question.answers[j]] = [question.answers[j], question.answers[i]];
+        }
+    });
+}
+
+const answerButtons = document.getElementById("answer-buttons");
+
+const nextButton = document.getElementById("next-bttn");
 
 // Start Quiz - Reset Questions & Show Next Question
-function startQuiz(){
+function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     username = "";
-
-    // Display the previous score and username if available
-    if (previousScore !== null) {
-        alert("Previous Score: " + previousScore);
-    }
-    if (previousUsername !== null) {
-        username = previousUsername;
-    }
-
-    // Prompt user for username
-    username = prompt("Enter your username:", username);
-
-    // Store the username in localStorage
-    localStorage.setItem("quizUsername", username);
 
     nextButton.innerHTML = "Next";
     shuffleQuestions();
@@ -188,18 +166,18 @@ function startQuiz(){
     showQuestion();
 }
 
-function showQuestion(){
+function showQuestion() {
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
-    currentQuestion.answers.forEach(answer =>{
+    currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("bttn");
         answerButtons.appendChild(button);
-        if (answer.correct){
+        if (answer.correct) {
             button.dataset.correct = answer.correct;
         }
         button.addEventListener("click", selectAnswer);
@@ -207,93 +185,30 @@ function showQuestion(){
 }
 
 // Function which resets the previous question and answer including HTML in index file
-function resetState(){
+function resetState() {
     nextButton.style.display = "none";
-    while(answerButtons.firstChild){
+    while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
 }
 
-// Prompts a colour change in buttons, highlighting correct and incorrect answers accordingly 
-function selectAnswer(e){
+// Prompts a color change in buttons, highlighting correct and incorrect answers accordingly 
+function selectAnswer(e) {
     const selectedBttn = e.target;
     const isCorrect = selectedBttn.dataset.correct === "true";
-    if(isCorrect){
+    if (isCorrect) {
         selectedBttn.classList.add("correct");
         score++;
-    }else{
+    } else {
         selectedBttn.classList.add("incorrect");
     }
-    Array.from(answerButtons.children).forEach(button =>{
-        if(button.dataset.correct === "true"){
+    Array.from(answerButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
             button.classList.add("correct");
         }
         button.disabled = true;
     });
     nextButton.style.display = "block";
-}
-
-// Presents the final score and options to retry or return to home
-function showScore() {
-    resetState();
-    const finalScore = `Well done ${username}! You scored ${score} out of ${questions.length}`;
-    questionElement.innerHTML = finalScore;
-
-    // Store the score in localStorage
-    localStorage.setItem("quizScore", score);
-
-    // Buttons for retry and return to home
-    nextButton.innerHTML = "Retry";
-    const homeButton = document.createElement("button");
-    homeButton.innerHTML = "Return to Home";
-    homeButton.classList.add("bttn");
-    homeButton.addEventListener("click", returnToHome);
-    answerButtons.appendChild(homeButton);
-
-    nextButton.style.display = "block";
-}
-
-    // Add the current score to the high scores
-    highScores.push({ username, score });
-
-    // Sort high scores in descending order
-    highScores.sort((a, b) => b.score - a.score);
-
-    // Keep only the top 5 scores
-    highScores = highScores.slice(0, 5);
-
-    // Store high scores in localStorage
-    localStorage.setItem("highScores", JSON.stringify(highScores));
-
-    // Display high scores in the console
-    console.log("High Scores:", highScores);
-
-    // Display high scores in the table
-    displayHighScores();
-
-// Function to display high scores in the table
-function displayHighScores() {
-    const highScoresTable = document.getElementById("highScoresTable");
-    if (highScoresTable) {
-        const tbody = highScoresTable.querySelector("tbody");
-
-        // Clear previous entries
-        tbody.innerHTML = "";
-
-        // Add new entries
-        highScores.forEach(entry => {
-            const row = document.createElement("tr");
-            const usernameCell = document.createElement("td");
-            usernameCell.textContent = entry.username;
-            const scoreCell = document.createElement("td");
-            scoreCell.textContent = entry.score;
-            row.appendChild(usernameCell);
-            row.appendChild(scoreCell);
-            tbody.appendChild(row);
-        });
-    } else {
-        console.error("highScoresTable not found in HTML");
-    }
 }
 
 function handleNextButton() {
@@ -302,26 +217,66 @@ function handleNextButton() {
         showQuestion();
     } else {
         showScore();
-
-        // Display high scores in the table
-        displayHighScores();
-
     }
 }
 
 // Function prompted when user clicks next button to proceed with next question
-nextButton.addEventListener("click", ()=>{
-    if(currentQuestionIndex < questions.length){
+nextButton.addEventListener("click", () => {
+    if (currentQuestionIndex < questions.length) {
         handleNextButton();
-    }else{
+    } else {
         startQuiz();
     }
 });
 
-// Function to handle the return to home button
+// Function to handle the return home button
 function returnToHome() {
     resetState();
-    startQuiz();
+    promptForUsername();
+}
+
+// Function to prompt the user for a username
+function promptForUsername() {
+    const enteredUsername = prompt("Enter your username:");
+    if (enteredUsername !== null && enteredUsername !== "") {
+        username = enteredUsername;
+        saveScore();
+        startQuiz();
+    } else {
+        // If the user cancels or enters an empty username, show the score again
+        showScore();
+    }
+}
+
+// Function to save the username and score in local storage
+function saveScore() {
+    const userScore = {
+        username: username,
+        score: score
+    };
+    const scores = JSON.parse(localStorage.getItem("quizScores")) || [];
+    scores.push(userScore);
+    localStorage.setItem("quizScores", JSON.stringify(scores));
+
+    // Log to console
+    console.log(`Username: ${username}, Score: ${score}`);
+}
+
+// Presents the final score and options to retry or return home
+function showScore() {
+    resetState();
+    const finalScore = `Well done ${username}! You scored ${score} out of ${questions.length}`;
+    questionElement.innerHTML = finalScore;
+
+    // Buttons for retry and return home
+    nextButton.innerHTML = "Retry";
+    const homeButton = document.createElement("button");
+    homeButton.innerHTML = "Return to Home";
+    homeButton.classList.add("bttn");
+    homeButton.addEventListener("click", returnToHome);
+    answerButtons.appendChild(homeButton);
+
+    nextButton.style.display = "block";
 }
 
 // Function which will initiate quiz & show the questions and their answers
