@@ -217,7 +217,6 @@ function handleNextButton() {
         showQuestion();
     } else {
         showScore();
-        promptForUsername();
     }
 }
 
@@ -233,6 +232,7 @@ nextButton.addEventListener("click", () => {
 // Function to handle the return home button
 function returnToHome() {
     resetState();
+    promptForUsername();
 }
 
 // Function to prompt the user for a username
