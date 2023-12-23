@@ -170,6 +170,12 @@ input::placeholder {
     text-align: center;
 }
 
+/* Rationale/Explanation */
+.quiz h2 p.explanation {
+    text-decoration: underline solid #6CCF4D;
+    color:#6CCF4D;
+}
+
 /* High Scores Table */
 #highScoresTable {
     width: 100%;

@@ -3,7 +3,7 @@ var questions = [
     {
         question: "What is the first step in wound care?",
         answers: [
-            { text: "Assess the patient & wound", correct: true },
+            { text: "Assess the patient & wound", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
             { text: "Develop plan of care", correct: false },
             { text: "Appropriate dressing for management", correct: false },
         ]
@@ -13,13 +13,13 @@ var questions = [
         answers: [
             { text: "To return the wound to the proliferation phase and establish a viable wound bed", correct: false },
             { text: "To minimize trauma", correct: false },
-            { text: "To remove infections or dead tissue", correct: true },
+            { text: "To remove infections or dead tissue", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
         ]
     },
     {
         question: "What is the colour assessment of wound exudate focused on?",
         answers: [
-            { text: "Colour, consistency, odour, amount", correct: true },
+            { text: "Colour, consistency, odour, amount", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
             { text: "Colour, consistency, odour", correct: false },
             { text: "Colour, consistency", correct: false },
         ]
@@ -28,7 +28,7 @@ var questions = [
         question: "What is the most common type of wound?",
         answers: [
             { text: "Arterial", correct: false },
-            { text: "Venous", correct: true },
+            { text: "Venous", correct: true,  explanation: "Assessing the patient and wound is the first step to understand the condition." },
             { text: "Diabetic", correct: false },
         ]
     },
@@ -37,7 +37,7 @@ var questions = [
         answers: [
             { text: "Trauma", correct: false },
             { text: "Infection", correct: false },
-            { text: "Venous insufficiency", correct: true },
+            { text: "Venous insufficiency", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
         ]
     },
     {
@@ -45,14 +45,14 @@ var questions = [
         answers: [
             { text: "Trauma", correct: false },
             { text: "Infection", correct: false },
-            { text: "Arterial insufficiency", correct: true },
+            { text: "Arterial insufficiency", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
         ]
     },
     {
         question: "What is the most common cause of diabetic ulcers?",
         answers: [
             { text: "Uncontrolled blood-sugar levels", correct: false },
-            { text: "Diabetic neuropathy", correct: true },
+            { text: "Diabetic neuropathy", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
             { text: "Venous/Arterial insufficiency", correct: false },
         ]
     },
@@ -60,14 +60,14 @@ var questions = [
         question: "What is the most common dressing used to treat venous ulcers?",
         answers: [
             { text: "Alginate-based dressings", correct: false },
-            { text: "Compression", correct: true },
+            { text: "Compression", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
             { text: "Hydrocolloid", correct: false },
         ]
     },
     {
         question: "What is the most common dressing used to treat pressure ulcers?",
         answers: [
-            { text: "Foam dressing", correct: true },
+            { text: "Foam dressing", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
             { text: "Charcoal dressing", correct: false },
             { text: "Hydrocolloid", correct: false },
         ]
@@ -75,7 +75,7 @@ var questions = [
     {
         question: "What is the best way to prevent pressure ulcers from forming?",
         answers: [
-            { text: "Change position frequently", correct: true },
+            { text: "Change position frequently", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
             { text: "Use a pressure-relieving mattress/cushion", correct: false },
             { text: "Apply barrier cream", correct: false },
         ]
@@ -83,7 +83,7 @@ var questions = [
     {
         question: "What is the best way to manage a wound with heavy exudate?",
         answers: [
-            { text: "Use a hydrofiber dressing", correct: true },
+            { text: "Use a hydrofiber dressing", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
             { text: "Use a foam dressing", correct: false },
             { text: "Use a transparent film dressing", correct: false },
         ]
@@ -93,13 +93,13 @@ var questions = [
         answers: [
             { text: "Rest", correct: false },
             { text: "Exercise", correct: false },
-            { text: "Optimal nutrition", correct: true },
+            { text: "Optimal nutrition", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
         ]
     },
     {
         question: "What is the best way to manage a wound with minimal exudate?",
         answers: [
-            { text: "Use a hydrocolloid dressing", correct: true },
+            { text: "Use a hydrocolloid dressing", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
             { text: "Use a hydrogel dressing", correct: false },
             { text: "Use a silicone gel sheet", correct: false },
         ]
@@ -108,14 +108,14 @@ var questions = [
         question: "What is the  best way to manage a wound with exposed bone or tendon?",
         answers: [
             { text: "Use a hydrocolloid dressing", correct: false },
-            { text: "Use a collagen dressing", correct: true },
+            { text: "Use a collagen dressing", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
             { text: "Use a silver dressing", correct: false },
         ]
     },
     {
         question: "What is the best way to manage a wound with a foul odor?",
         answers: [
-            { text: "Use a charcoal dressing", correct: true },
+            { text: "Use a charcoal dressing", correct: true,  explanation: "Assessing the patient and wound is the first step to understand the condition." },
             { text: "Use a silver dressing", correct: false },
             { text: "Use an alginate dressing", correct: false },
         ]
@@ -191,6 +191,16 @@ function resetState() {
 function selectAnswer(e) {
     const selectedBttn = e.target;
     const isCorrect = selectedBttn.dataset.correct === "true";
+
+    // Add explanation after selecting an answer
+    const explanation = document.createElement("p");
+    explanation.classList.add("explanation");
+    explanation.innerHTML += "Rationale: " + getExplanation();
+
+    // Display the explanation
+    questionElement.appendChild(explanation);
+
+
     if (isCorrect) {
         selectedBttn.classList.add("correct");
         score++;
@@ -204,6 +214,14 @@ function selectAnswer(e) {
         button.disabled = true;
     });
     nextButton.style.display = "block";
+}
+
+// Function to get the explanation for the current question
+function getExplanation() {
+    const currentQuestion = questions[currentQuestionIndex];
+    const correctAnswer = currentQuestion.answers.find(answer => answer.correct);
+
+    return correctAnswer.explanation || "No explanation available.";
 }
 
 // Presents the final score and options to retry or return to home
@@ -291,14 +309,7 @@ function startQuiz() {
     score = 0;
     username = "";
 
-    // Display the previous score and username if available
-    if (previousScore !== null) {
-        alert("Previous Score: " + previousScore);
-    }
-    if (previousUsername !== null) {
-        username = previousUsername;
-    }
-
+    
     // Prompt user for username
     username = prompt("Enter your username:", username);
 
