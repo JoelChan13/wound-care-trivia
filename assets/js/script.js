@@ -123,10 +123,6 @@ var questions = [
     }
 ];
 
-// Retrieve the previous score and username from localStorage
-let previousScore = localStorage.getItem("quizScore");
-let previousUsername = localStorage.getItem("quizUsername");
-
 // Variables
 
 // Score & Username
@@ -298,7 +294,7 @@ function shuffleAnswers() {
             [question.answers[i], question.answers[j]] = [question.answers[j], question.answers[i]];
         }
     });
-};
+}
 
 const answerButtons = document.getElementById("answer-buttons");
 
