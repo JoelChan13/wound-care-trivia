@@ -76,7 +76,7 @@ var questions = [
     {
         question: "What is the best way to prevent pressure ulcers from forming?",
         answers: [
-            { text: "Change position frequently", correct: true, explanation: "Changing position is one of the best ways of preventing pressure ulcers as this alleviates pressure from bony prominent areas" },
+            { text: "Change position frequently", correct: true, explanation: "Changing position is one of the best ways of preventing pressure ulcers as this alleviates pressure from bony prominent areas." },
             { text: "Use a pressure-relieving mattress/cushion", correct: false },
             { text: "Apply barrier cream", correct: false },
         ]
