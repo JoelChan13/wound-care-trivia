@@ -302,9 +302,6 @@ function startQuiz() {
     // Prompt user for username
     username = prompt("Enter your username:", username);
 
-    // Store the username in localStorage
-    localStorage.setItem("quizUsername", username);
-
     nextButton.innerHTML = "Next";
     shuffleQuestions();
     shuffleAnswers();
