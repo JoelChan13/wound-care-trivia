@@ -3,7 +3,7 @@ var questions = [
     {
         question: "What is the first step in wound care?",
         answers: [
-            { text: "Assess the patient & wound", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
+            { text: "Assess the patient & wound", correct: true, explanation: "Assessing the patient's wound is considered the first step in wound care because it helps determine the appropriate treatment course. A thorough assessment can help identify the type of wound, its severity, and any underlying conditions that may affect the healing process This information is critical in developing a treatment plan tailored to the specific needs of the patient. Additionally, wound assessment can help identify any potential complications that may arise during the healing process, such as infection or delayed healing." },
             { text: "Develop plan of care", correct: false },
             { text: "Appropriate dressing for management", correct: false },
         ]
@@ -13,13 +13,14 @@ var questions = [
         answers: [
             { text: "To return the wound to the proliferation phase and establish a viable wound bed", correct: false },
             { text: "To minimize trauma", correct: false },
-            { text: "To remove infections or dead tissue", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
+            {
+                text: "To remove infections or dead tissue", correct: true, explanation: "Removing dead tissue is important because it can delay the healing process and increase the risk of infection. Dead tissue can also provide a breeding ground for bacteria, which can lead to further complications.Infections can cause the wound to become red, swollen, and painful, and can even lead to sepsis if left untreated." },
         ]
     },
     {
         question: "What is the colour assessment of wound exudate focused on?",
         answers: [
-            { text: "Colour, consistency, odour, amount", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
+            { text: "Colour, consistency, odour, amount", correct: true, explanation: "By assessing the color, odour and amount of wound exudate, healthcare professionals can identify any potential complications that may arise during the healing process, such as infection or delayed healing." },
             { text: "Colour, consistency, odour", correct: false },
             { text: "Colour, consistency", correct: false },
         ]
@@ -28,7 +29,7 @@ var questions = [
         question: "What is the most common type of wound?",
         answers: [
             { text: "Arterial", correct: false },
-            { text: "Venous", correct: true,  explanation: "Assessing the patient and wound is the first step to understand the condition." },
+            { text: "Venous", correct: true, explanation: "Venous ulcers are the most common type of leg ulcer, accounting for more than 60% of all cases." },
             { text: "Diabetic", correct: false },
         ]
     },
@@ -45,14 +46,14 @@ var questions = [
         answers: [
             { text: "Trauma", correct: false },
             { text: "Infection", correct: false },
-            { text: "Arterial insufficiency", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
+            { text: "Arterial insufficiency", correct: true, explanation: "Risk factors for arterial insufficiency include smoking, high blood pressure, high cholesterol, diabetes, and obesity." },
         ]
     },
     {
         question: "What is the most common cause of diabetic ulcers?",
         answers: [
             { text: "Uncontrolled blood-sugar levels", correct: false },
-            { text: "Diabetic neuropathy", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
+            { text: "Diabetic neuropathy", correct: true, explanation: "Diabetic neuropathy is a type of nerve damage that can occur if you have diabetes. High blood glucose can injure nerves throughout the body, most often damaging nerves in the legs and feet. This nerve damage can cause a loss of sensation in the feet, making it difficult to feel cuts, blisters, or other injuries. If left untreated, these injuries can develop into diabetic ulcers." },
             { text: "Venous/Arterial insufficiency", correct: false },
         ]
     },
@@ -60,14 +61,14 @@ var questions = [
         question: "What is the most common dressing used to treat venous ulcers?",
         answers: [
             { text: "Alginate-based dressings", correct: false },
-            { text: "Compression", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
+            { text: "Compression", correct: true, explanation: "Compression dressings aid in improving poor circulation, which is one of the main culprits of venous ulcers." },
             { text: "Hydrocolloid", correct: false },
         ]
     },
     {
         question: "What is the most common dressing used to treat pressure ulcers?",
         answers: [
-            { text: "Foam dressing", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
+            { text: "Foam dressing", correct: true, explanation: " Foam dressings are highly absorbent and can help to manage exudate, whilst also providing a layer of cushioning." },
             { text: "Charcoal dressing", correct: false },
             { text: "Hydrocolloid", correct: false },
         ]
@@ -75,7 +76,7 @@ var questions = [
     {
         question: "What is the best way to prevent pressure ulcers from forming?",
         answers: [
-            { text: "Change position frequently", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
+            { text: "Change position frequently", correct: true, explanation: "Changing position is one of the best ways of preventing pressure ulcers as this alleviates pressure from bony prominent areas" },
             { text: "Use a pressure-relieving mattress/cushion", correct: false },
             { text: "Apply barrier cream", correct: false },
         ]
@@ -83,7 +84,7 @@ var questions = [
     {
         question: "What is the best way to manage a wound with heavy exudate?",
         answers: [
-            { text: "Use a hydrofiber dressing", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
+            { text: "Use a hydrofiber dressing", correct: true, explanation: "Hydrofiber dressings are a type of absorptive dressing that contain sodium carboxymethylcellulose. They are highly absorbent and can absorb a large amount of wound exudate, transforming it into a soft gel that creates a moist wound environment. This gel helps to promote autolytic debridement, which is the process of removing dead tissue from a wound. Hydrofiber dressings are also able to maintain their integrity even when they are wet, which makes them ideal for managing heavy exudate." },
             { text: "Use a foam dressing", correct: false },
             { text: "Use a transparent film dressing", correct: false },
         ]
@@ -93,13 +94,13 @@ var questions = [
         answers: [
             { text: "Rest", correct: false },
             { text: "Exercise", correct: false },
-            { text: "Optimal nutrition", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
+            { text: "Optimal nutrition", correct: true, explanation: "Nutrition is a critical factor in wound healing because it plays a vital role in the body’s ability to repair and regenerate tissue. Proper nutrition is essential for optimal wound healing, as it provides the body with the necessary nutrients to support the healing process. A balanced diet that includes adequate amounts of protein, carbohydrates, fats, vitamins, and minerals is essential for wound healing. Protein is particularly important, as it is necessary for the production of new tissue. Vitamins such as vitamin C and vitamin A are also important, as they play a role in collagen synthesis and immune function, respectively. Additionally, adequate hydration is essential for wound healing, as it helps to maintain the skin elasticity and promotes the flow of nutrients to the wound site." },
         ]
     },
     {
         question: "What is the best way to manage a wound with minimal exudate?",
         answers: [
-            { text: "Use a hydrocolloid dressing", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
+            { text: "Use a hydrocolloid dressing", correct: true, explanation: "Hydrocolloid dressings are ideal for minimally exudating wounds because they are absorptive dressings that can help to maintain a moist wound environment. They are composed of a combination of gel-forming substances that in the presence of wound exudate, cross-react to form a gel. This gel helps to promote autolytic debridement, which is the process of removing dead tissue from a wound." },
             { text: "Use a hydrogel dressing", correct: false },
             { text: "Use a silicone gel sheet", correct: false },
         ]
@@ -108,14 +109,14 @@ var questions = [
         question: "What is the  best way to manage a wound with exposed bone or tendon?",
         answers: [
             { text: "Use a hydrocolloid dressing", correct: false },
-            { text: "Use a collagen dressing", correct: true, explanation: "Assessing the patient and wound is the first step to understand the condition." },
+            { text: "Use a collagen dressing", correct: true, explanation: "In addition to promoting tissue regeneration, collagen dressings can also help to maintain a moist wound environment, which is essential for optimal wound healing. They can also help to absorb excess exudate and provide a protective barrier against bacteria and other contaminants." },
             { text: "Use a silver dressing", correct: false },
         ]
     },
     {
-        question: "What is the best way to manage a wound with a foul odor?",
+        question: "What is the best way to manage a wound with a foul odour?",
         answers: [
-            { text: "Use a charcoal dressing", correct: true,  explanation: "Assessing the patient and wound is the first step to understand the condition." },
+            { text: "Use a charcoal dressing", correct: true, explanation: "The charcoal layer of the wound dressing absorbs the bacteria and localized wound toxins, as well as other odour causing matter found in the wound bed." },
             { text: "Use a silver dressing", correct: false },
             { text: "Use an alginate dressing", correct: false },
         ]
