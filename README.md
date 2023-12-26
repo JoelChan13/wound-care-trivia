@@ -34,7 +34,7 @@ The purpose of this quiz is to provide a means to check the users’ current kno
 - By clicking the retry button, the user restarts the quiz and is prompted to provide a username.
 - By clicking the return to home button, the user is taken to the home page.
 
-![Result](https://github.com/JoelChan13/wound-care-trivia/blob/main/assets/images/wound-care-trivia-result-mockup.png)
+![Result]( https://github.com/JoelChan13/wound-care-trivia/blob/main/assets/images/wound-care-trivia-result-mockup.png)
 
 ## Testing
 - The page was tested on multiple browsers, including Firefox, Chrome, Brave, Edge, and Safari.
@@ -69,7 +69,7 @@ The purpose of this quiz is to provide a means to check the users’ current kno
 | Hover over Recipes answer button once answer is submitted | Changes cursor to a no symbol         |    Pass |
 
 ## Deployment
-- The site was deployed to GitHub pages. From the GitHub repository, access mealprephub. Click on the deployments section. Click on the active deployment link provided.
+- The site was deployed to GitHub pages. From the GitHub repository, access wound-care-trivia. Click on the deployments section. Click on the active deployment link provided.
 - [Wound Care Trivia Link](https://joelchan13.github.io/wound-care-trivia/)
 
 ### Local Deployment
@@ -81,4 +81,4 @@ The purpose of this quiz is to provide a means to check the users’ current kno
 - Boilerplate HTML Structure Code was taken from the ci-full-template found in CI GitHub repo by lechien73
 
 ### Media
--The hero image used for this website were generated using Microsoft Bing Image Creator powered by DALL·E 3.
+- The hero image used for this website were generated using Microsoft Bing Image Creator powered by DALL·E 3.
