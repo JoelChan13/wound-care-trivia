@@ -34,7 +34,7 @@ The purpose of this quiz is to provide a means to check the users’ current kno
 - By clicking the retry button, the user restarts the quiz and is prompted to provide a username.
 - By clicking the return to home button, the user is taken to the home page.
 
-![Result]( https://github.com/JoelChan13/wound-care-trivia/blob/main/assets/images/wound-care-trivia-result-mockup.png)
+![Result]( https://github.com/JoelChan13/wound-care-trivia/blob/main/assets/images/wound-care-trivia-result-mockup.jpg)
 
 ## Testing
 - The page was tested on multiple browsers, including Firefox, Chrome, Brave, Edge, and Safari.
