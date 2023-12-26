@@ -345,7 +345,7 @@ nextButton.addEventListener("click", () => {
 
 // Function to handle the return to home button
 function returnToHome() {
-    window.location.href = "/index.html";
+    window.location.href = "index.html";
 }
 
 // Function which will initiate quiz & show the questions and their answers
