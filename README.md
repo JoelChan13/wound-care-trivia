@@ -73,7 +73,7 @@ The purpose of this quiz is to provide a means to check the users’ current kno
 - [Wound Care Trivia Link](https://joelchan13.github.io/wound-care-trivia/)
 
 ### Local Deployment
-- The repository was cloned to local machine using the following command in your terminal: git clone <https://github.com/JoelChan13/wound-care-trivia.git>
+- The repository was cloned to local machine using the following command in the terminal: git clone <https://github.com/JoelChan13/wound-care-trivia.git>
 - The following command was submitted in the terminal: cd wound-care-trivia.
 - index.html was opened in the browser to start website.
 
