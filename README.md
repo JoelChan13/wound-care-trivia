@@ -82,6 +82,7 @@ The purpose of this quiz is to provide a means to check the users’ current kno
 
 ### Content
 - Boilerplate HTML Structure Code was taken from the ci-full-template found in CI GitHub repo by lechien73
+- The information related to wound care, found in the rationale of every answer was obtained from The British Journal of Nursing.
 
 ### Media
 - The hero image used for this website were generated using Microsoft Bing Image Creator powered by DALL·E 3.
