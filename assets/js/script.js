@@ -241,7 +241,11 @@ function showScore() {
     nextButton.style.display = "block";
 }
 
-// Function to save username and score to local storage
+/**
+ * Function to save username and score to local storage
+ * @param {string} username 
+ * @param {number} score 
+ */
 function saveToLocalStorage(username, score) {
     // Check if local storage is supported
     if (typeof Storage !== "undefined") {
