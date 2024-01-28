@@ -153,9 +153,24 @@ function displayHighScores() {
             row.appendChild(scoreCell);
             tbody.appendChild(row);
         });
-    } else {
-        console.error("highScoresTable not found in HTML");
     }
+}
+
+// Validate the prompt 
+let userInput;
+
+// Keep prompting until valid non-empty text is entered
+do {
+    userInput = prompt('Please enter text (max 20 characters):');
+} while (!isValidText(userInput));
+
+// Now you can use the validated text in your code
+console.log('Valid text entered:', userInput);
+
+// Function to check if the input is valid non-empty text with a maximum length of 20 characters
+function isValidText(input) {
+    // Check if the input is a non-empty string and its length is less than or equal to 20
+    return typeof input === 'string' && input.trim() !== '' && input.length <= 20;
 }
 
 // Add the current score to the high scores
