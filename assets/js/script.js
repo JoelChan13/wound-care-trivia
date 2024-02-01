@@ -14,7 +14,8 @@ var questions = [
             { text: "To return the wound to the proliferation phase and establish a viable wound bed", correct: false },
             { text: "To minimize trauma", correct: false },
             {
-                text: "To remove infections or dead tissue", correct: true, explanation: "Removing dead tissue is important because it can delay the healing process and increase the risk of infection. Dead tissue can also provide a breeding ground for bacteria, which can lead to further complications.Infections can cause the wound to become red, swollen, and painful, and can even lead to sepsis if left untreated." },
+                text: "To remove infections or dead tissue", correct: true, explanation: "Removing dead tissue is important because it can delay the healing process and increase the risk of infection. Dead tissue can also provide a breeding ground for bacteria, which can lead to further complications.Infections can cause the wound to become red, swollen, and painful, and can even lead to sepsis if left untreated."
+            },
         ]
     },
     {
@@ -135,42 +136,25 @@ let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
 // Function to display high scores in the table
 function displayHighScores() {
-    const highScoresTable = document.getElementById("highScoresTable");
+    const highScoresTable = document.getElementById('highScoresTable');
     if (highScoresTable) {
-        const tbody = highScoresTable.querySelector("tbody");
+        const tbody = highScoresTable.querySelector('tbody');
 
         // Clear previous entries
-        tbody.innerHTML = "";
+        tbody.innerHTML = '';
 
         // Add new entries
         highScores.forEach(entry => {
-            const row = document.createElement("tr");
-            const usernameCell = document.createElement("td");
+            const row = document.createElement('tr');
+            const usernameCell = document.createElement('td');
             usernameCell.textContent = entry.username;
-            const scoreCell = document.createElement("td");
+            const scoreCell = document.createElement('td');
             scoreCell.textContent = entry.score;
             row.appendChild(usernameCell);
             row.appendChild(scoreCell);
             tbody.appendChild(row);
         });
     }
-}
-
-// Validate the prompt 
-let userInput;
-
-// Keep prompting until valid non-empty text is entered
-do {
-    userInput = prompt('Please enter text (max 20 characters):');
-} while (!isValidText(userInput));
-
-// Now you can use the validated text in your code
-console.log('Valid text entered:', userInput);
-
-// Function to check if the input is valid non-empty text with a maximum length of 20 characters
-function isValidText(input) {
-    // Check if the input is a non-empty string and its length is less than or equal to 20
-    return typeof input === 'string' && input.trim() !== '' && input.length <= 20;
 }
 
 // Add the current score to the high scores
@@ -325,10 +309,20 @@ function startQuiz() {
     score = 0;
     username = "";
 
-    
+
     // Prompt user for username
     username = prompt("Enter your username:", username);
 
+    do {
+        username = prompt('Please enter text (max 20 characters):');
+    } while (!isValidText(username));
+
+    // Function to check if the input is valid non-empty text with a maximum length of 20 characters
+    function isValidText(input) {
+        // Check if the input is a non-empty string and its length is less than or equal to 20
+        return typeof input === 'string' && input.trim() !== '' && input.length <= 20;
+    }
+    
     nextButton.innerHTML = "Next";
     shuffleQuestions();
     shuffleAnswers();
@@ -369,4 +363,3 @@ function returnToHome() {
 
 // Function which will initiate quiz & show the questions and their answers
 startQuiz();
-
