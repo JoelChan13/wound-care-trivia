@@ -166,9 +166,6 @@ highScores.sort((a, b) => b.score - a.score);
 // Keep only the top 5 scores
 highScores = highScores.slice(0, 5);
 
-// Store high scores in localStorage
-localStorage.setItem("highScores", JSON.stringify(highScores));
-
 // Display high scores in the console
 console.log("High Scores:", highScores);
 
@@ -279,6 +276,9 @@ function handleNextButton() {
         showQuestion();
     } else {
         showScore();
+
+        // Store high scores in localStorage
+        localStorage.setItem("highScores", JSON.stringify(highScores));
 
         // Display high scores in the table
         displayHighScores();
