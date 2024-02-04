@@ -177,9 +177,16 @@ displayHighScores();
 
 // Function which resets the previous question and answer including HTML in index file
 function resetState() {
-    nextButton.style.display = "none";
-    while (answerButtons.firstChild) {
-        answerButtons.removeChild(answerButtons.firstChild);
+    // Check if nextButton exists before modifying its style
+    if (nextButton) {
+        nextButton.style.display = "none";
+    }
+
+    // Check if answerButtons exists before manipulating its content
+    if (answerButtons) {
+        while (answerButtons.firstChild) {
+            answerButtons.removeChild(answerButtons.firstChild);
+        }
     }
 }
 
@@ -311,10 +318,8 @@ function startQuiz() {
 
 
     // Prompt user for username
-    username = prompt("Enter your username:", username);
-
     do {
-        username = prompt('Please enter text (max 20 characters):');
+        username = prompt('Please enter your username (max 20 characters):');
     } while (!isValidText(username));
 
     // Function to check if the input is valid non-empty text with a maximum length of 20 characters
@@ -323,38 +328,47 @@ function startQuiz() {
         return typeof input === 'string' && input.trim() !== '' && input.length <= 20;
     }
     
-    nextButton.innerHTML = "Next";
+    // Check if nextButton exists before modifying its innerHTML
+    if (nextButton) {
+        nextButton.innerHTML = "Next";
+    }
+
     shuffleQuestions();
     shuffleAnswers();
     showQuestion();
 }
 
 function showQuestion() {
-    resetState();
-    let currentQuestion = questions[currentQuestionIndex];
-    let questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+    // Check if nextButton exists before proceeding
+    if (nextButton) {
+        resetState();
+        let currentQuestion = questions[currentQuestionIndex];
+        let questionNo = currentQuestionIndex + 1;
+        questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
-    currentQuestion.answers.forEach(answer => {
-        const button = document.createElement("button");
-        button.innerHTML = answer.text;
-        button.classList.add("bttn");
-        answerButtons.appendChild(button);
-        if (answer.correct) {
-            button.dataset.correct = answer.correct;
-        }
-        button.addEventListener("click", selectAnswer);
-    });
+        currentQuestion.answers.forEach(answer => {
+            const button = document.createElement("button");
+            button.innerHTML = answer.text;
+            button.classList.add("bttn");
+            answerButtons.appendChild(button);
+            if (answer.correct) {
+                button.dataset.correct = answer.correct;
+            }
+            button.addEventListener("click", selectAnswer);
+        });
+    }
 }
 
 // Function prompted when user clicks next button to proceed with next question
-nextButton.addEventListener("click", () => {
-    if (currentQuestionIndex < questions.length) {
-        handleNextButton();
-    } else {
-        startQuiz();
-    }
-});
+if (nextButton) {
+    nextButton.addEventListener("click", () => {
+        if (currentQuestionIndex < questions.length) {
+            handleNextButton();
+        } else {
+            startQuiz();
+        }
+    });
+}
 
 // Function to handle the return to home button
 function returnToHome() {
@@ -362,4 +376,7 @@ function returnToHome() {
 }
 
 // Function which will initiate quiz & show the questions and their answers
-startQuiz();
+// Check if nextButton exists before calling the startQuiz function
+if (nextButton) {
+    startQuiz();
+}
