@@ -277,9 +277,6 @@ function handleNextButton() {
     } else {
         showScore();
 
-        // Store high scores in localStorage
-        localStorage.setItem("highScores", JSON.stringify(highScores));
-
         // Display high scores in the table
         displayHighScores();
     }
@@ -327,7 +324,7 @@ function startQuiz() {
         // Check if the input is a non-empty string and its length is less than or equal to 20
         return typeof input === 'string' && input.trim() !== '' && input.length <= 20;
     }
-    
+
     // Check if nextButton exists before modifying its innerHTML
     if (nextButton) {
         nextButton.innerHTML = "Next";
