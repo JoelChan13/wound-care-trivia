@@ -1,4 +1,5 @@
 # Wound Care Trivia
+
 The purpose of this quiz is to provide a means to check the users' current knowledge regarding wound care management. This tool may be useful to nursing students, healthcare educators, newly qualified nurses, and even experienced nurses looking to identify lacunas in their knowledge to address the patient's needs in a more efficient, effective, and safer manner. Although the user is encouraged to pick their respective answers based on their knowledge, the tool also provides a rationale for each correct answer, to ensure the user gets the chance to learn from the questions presented. A final score will be provided at the end of the quiz, which will provide an indication of the user's performance.
 
 [Wound Care Trivia Link](https://joelchan13.github.io/wound-care-trivia/)
@@ -8,10 +9,12 @@ The purpose of this quiz is to provide a means to check the users' current knowl
 ## Features
 
 ### Start
+
 - The start button is featured at the center of the home page and prompts the commencement of the quiz.
 - Upon commencing the quiz, the user is prompted to submit a username, which is stored in the local storage.
 
 ### High Scores
+
 - The high scores button is featured at the center of the home page, below the Start button and directs the user to the high scores page.
 - On pressing the high scores button, the user is taken to the high scores page, which retrieves the top 5 results, together with their respective username, from the local storage.
 
@@ -20,6 +23,7 @@ The purpose of this quiz is to provide a means to check the users' current knowl
 ![High Scores Page]( https://github.com/JoelChan13/wound-care-trivia/blob/main/assets/images/wound-care-trivia-highscores-mockup.png)
 
 ### Answer Selection & Next Buttons
+
 - The answers are shuffled and can be selected by clicking on them.
 - Upon clicking the selected answer, the answer will turn green, if correct, or red, if incorrect, whilst also presenting the next button.
 - The user is not allowed to press any other answer once the selection has been made.
@@ -30,6 +34,7 @@ The purpose of this quiz is to provide a means to check the users' current knowl
 ![Answer Selection & Rationale]( https://github.com/JoelChan13/wound-care-trivia/blob/main/assets/images/wound-care-trivia-answer-mockup.png)
 
 ### Result & Return to Home Page
+
 - The user is presented with the result once all questions have been answered and a prompt to retry the quiz or return to home is presented.
 - By clicking the retry button, the user restarts the quiz and is prompted to provide a username.
 - By clicking the return to home button, the user is taken to the home page.
@@ -37,16 +42,23 @@ The purpose of this quiz is to provide a means to check the users' current knowl
 ![Result]( https://github.com/JoelChan13/wound-care-trivia/blob/main/assets/images/wound-care-trivia-result-mockup.jpg)
 
 ## Testing
-- The page was tested on multiple browsers, including Firefox, Chrome, Brave, Edge, and Safari.
+
+- The page was tested on multiple browsers, including Firefox, Chrome, Brave, Edge.
 - The project is responsive and fully functional in all standard screen sizes.
 - Testing was conducted to ensure ease of readability on different devices.
 
 ### Validator Testing
+
 #### HTML
+
 - No errors were returned when testing all sections of the project through the W3C validation.
+
 #### CSS  
+
 - No errors were returned when testing styling section of the project through the W3C validation.
+
 #### Accessibility
+
 - Testing was done through Lighthouse DevTool and the result was satisfactory
 ![Lighthouse Validation](https://github.com/JoelChan13/wound-care-trivia/blob/main/assets/images/lighthouse-result-1.jpg)
 
@@ -55,6 +67,7 @@ The purpose of this quiz is to provide a means to check the users' current knowl
 ![Lighthouse Validation](https://github.com/JoelChan13/wound-care-trivia/blob/main/assets/images/lighthouse-result-3.jpg)
 
 #### Functional Testing
+
 | Action  | Expected Outcome  | Pass/Fail |
 | :------------ |:---------------:| -----:|
 | Click on start button| Go to wound-care-trivia.html/start quiz & shuffles questions and answers        |    Pass |
@@ -69,20 +82,23 @@ The purpose of this quiz is to provide a means to check the users' current knowl
 | Hover over Recipes answer button once answer is submitted | Changes cursor to a no symbol         |    Pass |
 
 ## Deployment
+
 - The site was deployed to GitHub pages. From the GitHub repository, access wound-care-trivia. Click on the deployments section. Click on the active deployment link provided.
 - [Wound Care Trivia Link](https://joelchan13.github.io/wound-care-trivia/)
 
 ### Local Deployment
+
 - The repository was cloned to local machine using the following command in the terminal: git clone <https://github.com/JoelChan13/wound-care-trivia.git>
 - The following command was submitted in the terminal: cd wound-care-trivia.
 - index.html was opened in the browser to start website.
 
-
 ## Credits
 
 ### Content
+
 - Boilerplate HTML Structure Code was taken from the ci-full-template found in CI GitHub repo by lechien73
 - The information related to wound care, found in the rationale of every answer was obtained from The British Journal of Nursing.
 
 ### Media
+
 - The hero image used for this website were generated using Microsoft Bing Image Creator powered by DALL·E 3.
