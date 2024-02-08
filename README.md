@@ -81,6 +81,14 @@ The purpose of this quiz is to provide a means to check the users' current knowl
 | Hover over answer buttons | highlights buttons in different colour and changes the cursor to a pointer        |    Pass |
 | Hover over Recipes answer button once answer is submitted | Changes cursor to a no symbol         |    Pass |
 
+#### Bugs
+
+- When testing on Edge and Chrome, 3 errors were presented:
+- ERROR 1 > "Unchecked runtime.lastError: The message port closed before a response was received."
+- EEROR 2 > "Access to manifest at 'https://id.codeanywhere.com/realms/default/protocol/openid-connect/auth?client_id=proxy&scope=openid%20profile%20email&response_type=code&redirect_uri=https%3A%2F%2Fauth.us2.codeanyapp.com%2F_auth%2Fcallback&nonce=1lD2fgenRoYpMK48EI2E2WgZkGKCYnuHhdDky34p9gs&state=eyJyZXR1cm5UbyI6Imh0dHBzOi8vODAwMC1qb2VsY2hhbjEzLXdvdW5kLWNhcmUtdHItc2FuajhxeHVoOC51czIuY29kZWFueWFwcC5jb206NDQzL3NpdGUud2VibWFuaWZlc3QifQ&code_challenge_method=S256&code_challenge=jURrbTaRVF7AO0CXu8y0EWLUHA-osS-AaGsj_y3QK-c' (redirected from 'https://8000-joelchan13-wound-care-tr-sanj8qxuh8.us2.codeanyapp.com/site.webmanifest') from origin 'https://8000-joelchan13-wound-care-tr-sanj8qxuh8.us2.codeanyapp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+- ERROR 3 > "Failed to load resource: net::ERR_FAILED"
+- The errors, as confirmed by the Code Institute tutor team, are linked to the browser extensions and IDE, and have no effect on the deployment and use of the app.
+  
 ## Deployment
 
 - The site was deployed to GitHub pages. From the GitHub repository, access wound-care-trivia. Click on the deployments section. Click on the active deployment link provided.
