@@ -99,6 +99,7 @@ The purpose of this quiz is to provide a means to check the users' current knowl
 - The repository was cloned to local machine using the following command in the terminal: git clone <https://github.com/JoelChan13/wound-care-trivia.git>
 - The following command was submitted in the terminal: cd wound-care-trivia.
 - index.html was opened in the browser to start website.
+- Migrated to VS Code on 9th February 2025
 
 ## Credits
 
